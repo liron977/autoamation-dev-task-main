@@ -29,35 +29,17 @@ test.describe('Create Publisher ->Create Post - link to the Publisher created( S
     await page.click('a:has-text("Happy Folder")');
     await page.click('a:has-text("Publisher")');
 
-    await createPublisher(page);
+    const uniqueEmail = await createPublisher(page);
 
     await page.click('.fOmMdg');
-    //await page.click('a:has-text("Happy Folder")');
+
     await page.click('a:has-text("Post")');
 
-    await createPost(page, 3);
+    // await createPost(page, uniqueEmail);
+
+    await createPost(page, 2);
 
     await editPost(page);
-    // await page.click('[data-css="Post-table-row"]:first-child');
-    // const section = await page.locator('[data-testid="property-show-id"]');
-    // const recordId = (await section.textContent()).trim().replace('#', '');
-
-    // await page.click('[data-testid="action-edit"]');
-    // await page.click('.css-k21zfa-ValueContainer');
-
-    // await page.click('.css-1wrbua2-option:has-text("REMOVED")');
-    // await page.click('[data-testid="someJson-add"]');
-
-    // await page.click('[data-testid="button-save"]');
-
-    // await page.click('[data-css="Post-filter-button"]');
-
-    // await page.fill('input[name="filter-id"]', recordId);
-    // await page.click('button[data-css="Post-filter-drawer-button-apply"]');
-
-    // const text = await page.textContent('[data-testid="property-list-status"]');
-
-    // expect(text).toBe('REMOVED');
   });
   test.afterAll(async () => {
     console.log('Closing browser context...');
