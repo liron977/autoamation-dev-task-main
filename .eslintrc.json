@@ -1,0 +1,36 @@
+{
+  "env": {
+    "es6": true,
+    "jest": true,
+    "node": true
+  },
+  "parser": "espree", // JavaScript parser
+  "parserOptions": {
+    "ecmaVersion": 2022,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true // Keep if you're using JSX
+    }
+  },
+  "plugins": [
+    "react", // Only if you're using React
+    "prettier"
+  ],
+  "extends": [
+    "eslint:recommended", // JavaScript ESLint recommendations
+    "plugin:react/recommended", // Only if you're using React
+    "plugin:react/jsx-runtime", // For JSX
+    "plugin:react-hooks/recommended", // If using React hooks
+    "prettier"
+  ],
+  "rules": {
+    "prettier/prettier": "error", // Enforce Prettier formatting
+    "react/jsx-uses-react": "error", // React-specific rule
+    "react/jsx-uses-vars": "error" // React-specific rule
+  },
+  "settings": {
+    "react": {
+      "version": "detect" // Automatically detect React version
+    }
+  }
+}
